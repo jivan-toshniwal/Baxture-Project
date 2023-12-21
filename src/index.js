@@ -15,7 +15,10 @@ app.use('/api/users', userRoute);
 // MONGOOSE
 mongoose.set('strictQuery', true);
 mongoose
-  .connect(process.env.MONGODB)
+  .connect(process.env.MONGODB, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => console.log('Connected to MONGODB!'))
   .catch((err) => console.log('Mongoose:', err));
 
@@ -27,7 +30,8 @@ app.all('*', (req, res, next) => {
 // GLOBAL ERROR HANDLER
 app.use(globalErrorHand);
 
-const port = process.env.PORT || 4100;
-app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+const PORT = process.argv[2] || 4000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on PORT ${PORT}`);
 });

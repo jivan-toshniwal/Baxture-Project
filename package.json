@@ -5,15 +5,21 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon src/index.js"
+    "start:dev": "nodemon src/index.js",
+    "start:prod": "npm run build && node dist/index.js",
+    "start:multi": "node loadBalancer.js",
+    "start:worker": "node src/index.js"
   },
   "author": "Jivan Toshniwal",
   "license": "ISC",
   "repository": "https://github.com/jivan-toshniwal/Baxture-Project",
   "dependencies": {
+    "cluster": "^0.7.7",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "http-proxy": "^1.18.1",
     "mongoose": "^6.8.0",
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "uuid": "^9.0.1"
   }
 }

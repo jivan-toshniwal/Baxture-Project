@@ -1,6 +1,7 @@
 const AppError = require('./AppError');
 
 exports.globalErrorHand = (err, req, res, next) => {
+  console.log(err);
   if (err.name === 'ValidationError') {
     err = validErrHandler(err);
   }
