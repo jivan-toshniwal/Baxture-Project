@@ -8,7 +8,8 @@
     "start:dev": "nodemon src/index.js",
     "start:prod": "npm run build && node dist/index.js",
     "start:multi": "node loadBalancer.js",
-    "start:worker": "node src/index.js"
+    "start:worker": "node src/index.js",
+    "build": "tsc"
   },
   "author": "Jivan Toshniwal",
   "license": "ISC",
