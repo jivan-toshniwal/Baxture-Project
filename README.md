@@ -1,8 +1,79 @@
-# Baxture-Project
+# Baxture Project
 
 ## Overview
 
-This project implements a simple CRUD API with an in-memory database. Users can be created, retrieved, updated, and deleted using various API endpoints.
+This project implements a simple CRUD API using an in-memory database. Users can be created, retrieved, updated, and deleted through various API endpoints.
+
+## Requirements
+
+- Node.js LTS version 20.9.0
+- MongoDB (for production use)
+
+## Getting Started
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/jivan-toshniwal/Baxture-Project.git
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   cd Baxture-Project
+   npm install
+   ```
+
+3. Create a `.env` file in the project root with the following content:
+
+   ```
+   PORT=4000
+   MONGODB=<your_mongodb_connection_string>
+   ```
+
+   Replace `<your_mongodb_connection_string>` with your actual MongoDB connection string.
+
+4. Start the application in development mode:
+
+   ```bash
+   npm run start:dev
+   ```
+
+   The API will be available at `http://localhost:4000/api`.
+
+## Scaling
+
+### Development Mode
+
+To run the application in development mode using nodemon, use:
+
+```bash
+npm run start:dev
+```
+
+### Production Mode
+
+To run the application in production mode (after building), use:
+
+```bash
+npm run start:prod
+```
+
+### Horizontal Scaling
+
+For horizontal scaling with a load balancer, use:
+
+```bash
+npm run start:multi
+```
+
+This command starts multiple instances using the Node.js Cluster API, each listening on a different port. The load balancer listens on `http://localhost:4000/api` and distributes requests across the worker instances.
+
+## MongoDB Setup
+
+For production use, make sure to replace the in-memory database with MongoDB. Update the `.env` file with your MongoDB connection string.
+
+## Testing
 
 ## Technical Requirements
 
